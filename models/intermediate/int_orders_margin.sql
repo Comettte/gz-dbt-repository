@@ -10,4 +10,3 @@ from {{ ref('int_sales_margin') }}
     
 group by orders_id, date_date
 
-
