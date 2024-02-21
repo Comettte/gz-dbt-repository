@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 select 
 date_date,
 count(orders_id) as nb_transactions,
@@ -10,3 +12,4 @@ round(sum(operationnal_margin),2) as operational_margin
 from {{ ref('int_orders_operational') }}
 
 group by date_date
+
