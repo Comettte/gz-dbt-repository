@@ -1,18 +1,22 @@
-with 
+WITH source AS (
+    SELECT * FROM {{ ref('stg_raw__product') }}
+    JOIN {{ ref('stg_raw__sales') }} USING (products_id)
+),
 
-source as (
+margintable as 
+(
 
-    select * from {{ ref('stg_raw__product')}}
-    join {{ ref('stg_raw__sales')}} 
-    using (products_id)
+SELECT 
+    *,
+        {{ margin('revenue', 'purchase_price', 'quantity') }} AS margin,
+    ROUND(CAST(purchase_price AS FLOAT64) * quantity, 2) AS purchase_cost
 
+
+FROM source
 )
 
-select
+SELECT
     *,
-    round(revenue - CAST(purchase_price as FLOAT64)*quantity,2) as margin,
-    round(CAST(purchase_price as FLOAT64) * quantity,2) as purchase_cost
+    {{ margin_percent('margin', 'revenue') }} AS margin_percent
 
-    from source
-
-
+FROM margintable
