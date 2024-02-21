@@ -49,4 +49,93 @@ sources:
             description: logisitic costs
           - name: ship_cost
             description: shipping costs
-            
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: adwords ads / one row for each campaign_key found in each date_date
+        columns:
+          - name: date_date
+            description: date of the campaign
+            tests:
+            - not_null
+          - name: paid_source
+            description: source of the campaign -> adwords
+          - name: campaign_key
+            description: id of the campaign
+            tests:
+            - not_null
+          - name: camPGN_name
+            description: campaign name
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: impression of ads
+          - name: click
+            description: click on ads
+
+      - name: bing
+        identifier: raw_gz_bing
+        description: bing ads / one row for each campaign_key found in each date_date
+        columns:
+          - name: date_date
+            description: date of the campaign
+            tests:
+            - not_null
+          - name: paid_source
+            description: source of the campaign -> bing
+          - name: campaign_key
+            description: id of the campaign
+            tests:
+            - not_null
+          - name: camPGN_name
+            description: campaign name
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: impression of ads
+          - name: click
+            description: click on ads
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: criteo ads / one row for each campaign_key found in each date_date
+        columns:
+          - name: date_date
+            description: date of the campaign
+            tests:
+            - not_null
+          - name: paid_source
+            description: source of the campaign -> criteo
+          - name: campaign_key
+            description: id of the campaign
+            tests:
+            - not_null
+          - name: camPGN_name
+            description: campaign name
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: impression of ads
+          - name: click
+            description: click on ads
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: facebook ads / one row for each campaign_key found in each date_date
+        columns:
+          - name: date_date
+            description: date of the campaign
+            tests:
+            - not_null
+          - name: paid_source
+            description: source of the campaign -> facebook
+          - name: campaign_key
+            description: id of the campaign
+            tests:
+            - not_null
+          - name: camPGN_name
+            description: campaign name
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: impression of ads
+          - name: click
+            description: click on ads
