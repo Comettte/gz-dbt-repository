@@ -17,6 +17,6 @@ FROM source
 
 SELECT
     *,
-     {{ margin_percent('margin', 'revenue') }} AS margin_percent
+    {{ margin_percent('margin', 'revenue') }} AS margin_percent
 
 FROM margintable

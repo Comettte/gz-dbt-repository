@@ -3,5 +3,5 @@
 {% endmacro %}
 
 {% macro margin_percent(revenue,margin) %}
-    round(SAFE_DIVIDE(margin,revenue),2)
+    round(SAFE_DIVIDE(margin,revenue),2)*100
 {% endmacro %}
